@@ -179,7 +179,7 @@ class MultiPage extends Page {
   /// How the children should be placed along the main axis.
   final MainAxisAlignment mainAxisAlignment;
 
-  final List<_MultiPageInstance> _pages = <_MultiPageInstance>[];
+  final List<_MultiPageInstance> pages = <_MultiPageInstance>[];
 
   /// The maximum number of pages allowed before raising an error.
   /// This is not checked with a Release build.
@@ -275,7 +275,7 @@ class MultiPage extends Page {
         offsetEnd =
             _mustRotate ? pageHeightMargin - _margin.left : _margin.bottom;
 
-        _pages.add(_MultiPageInstance(
+        pages.add(_MultiPageInstance(
           context: context,
           constraints: constraints,
           fullConstraints: fullConstraints,
@@ -343,7 +343,7 @@ class MultiPage extends Page {
         span.layout(context, localConstraints, parentUsesSize: false);
         assert(span.box != null);
         widgetContext = span.saveContext();
-        _pages.last.widgets.add(
+        pages.last.widgets.add(
           _MultiPageWidget(
             child: span,
             constraints: localConstraints,
@@ -362,7 +362,7 @@ class MultiPage extends Page {
         continue;
       }
 
-      _pages.last.widgets.add(
+      pages.last.widgets.add(
         _MultiPageWidget(
           child: child,
           constraints: constraints,
@@ -388,7 +388,7 @@ class MultiPage extends Page {
     final pageWidthMargin = _mustRotate ? _margin.vertical : _margin.horizontal;
     final availableWidth = pageWidth - pageWidthMargin;
     final isRTL = pageTheme.textDirection == TextDirection.rtl;
-    for (final page in _pages) {
+    for (final page in pages) {
       var offsetStart = pageHeight -
           (_mustRotate ? pageHeightMargin - _margin.bottom : _margin.top);
       var offsetEnd =

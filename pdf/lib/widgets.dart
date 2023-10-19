@@ -45,6 +45,7 @@ export 'src/widgets/icon.dart';
 export 'src/widgets/image.dart';
 export 'src/widgets/image_provider.dart';
 export 'src/widgets/multi_page.dart';
+export 'src/widgets/multi_page_two_columns.dart';
 export 'src/widgets/page.dart';
 export 'src/widgets/page_theme.dart';
 export 'src/widgets/partitions.dart';
